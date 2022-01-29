@@ -1,7 +1,7 @@
 # xBots FTC 2021-2022
 * This has been created for FTC's 2021-2022 season, using blocks programming.
 ## Table of Contents
-[Tele-OP](#teleOP)
+[Tele-OP](#tele-OP)
 [Autonomous](#autonomous)
 ### Technologies
 Project is created with:

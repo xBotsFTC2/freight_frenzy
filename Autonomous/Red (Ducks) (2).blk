@@ -1,0 +1,1656 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="Jpc=JdwX{:vQkhaYhT(j">StartTime</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="-219" y="-498">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Robot starts - sets all motors to reverse, and resets encoders.</field>
+<next>
+<block type="dcMotor_setProperty_Direction" id="GU{,9fk}Vu@.z*WWf%O%">
+<field name="IDENTIFIER">topleftAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"top-left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="HM-.2s8j38@JKXvzY*~W">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="B9*{?JrV}s=HJwgJ#chO">
+<field name="IDENTIFIER">bottomleftAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"bottom-left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="QwBXkY8GsxbP~,1_N80P">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="E/vggWSl|q4X.kn]SZl*">
+<field name="IDENTIFIER">duckAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"duck"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="1rk/B2Q|zx:6O$tidEEa">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="sI^o]}Gpcf-Nb/X3I-)x">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="|g[4_x8R-UY`nIz,SK|5">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_waitForStart" id="c2xP=JZO4CAkOg]@85++">
+<next>
+<block type="controls_if" id="QQ)=0q+JPi3{_#csEwL@">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id="POq-KT1wqXgAsvxKpE{$"/>
+</value>
+<statement name="DO0">
+<block type="procedures_callnoreturn" id="x)kGihC(C5Kcz{W[Bg*F">
+<mutation name="Close Claw"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="7C)5ADTzOCp-5qNU(CmR">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="u^eV5GZT}PdZfN,4[I}Q">
+<field name="NUM">750</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="+d2!B!,)xBLW!DoaqygP">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="X|[mA=6Q.=}eK5q[pARr">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="IY2ZMd1mhX^,)1V[m_jQ">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="d7dlsJ_z(bw20G2]:8[u">
+<field name="NUM">-150</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="/T_F*}ybm4zr{{eM#qE*">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="a1A$hA.9K7,+IlI;dC{]">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="J(5`!EKqe)PZ$!(h@=,`">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="NIsT6@S^.v8QAIRBWPU^">
+<field name="NUM">-50</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="7`lX-=wig)Ol(@RxD.K-">
+<field name="VAR" id="Jpc=JdwX{:vQkhaYhT(j">StartTime</field>
+<value name="VALUE">
+<block type="linearOpMode_getRuntime_Number" id="*I;kv,7QLAqfv=HkK1l/"/>
+</value>
+<next>
+<block type="controls_whileUntil" id="2lKoBV!I`DScm^,)h`Nc">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_operation" id="ohg=OQ;VrJaoG^]8XTqa">
+<field name="OP">AND</field>
+<value name="A">
+<block type="linearOpMode_opModeIsActive" id="=9]:aN_]|/#+JwMDr:UL"/>
+</value>
+<value name="B">
+<block type="logic_compare" id="yREK}Pv`|rfCDAV%^w3G">
+<field name="OP">LT</field>
+<value name="A">
+<block type="math_arithmetic" id="b$`({8wtp`0;mpjBGDai">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="linearOpMode_getRuntime_Number" id="N:OZ4hPU%Cc8)t(*vj%^"/>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="P*n[ll%ig%/!h^Iq^uf|">
+<field name="VAR" id="Jpc=JdwX{:vQkhaYhT(j">StartTime</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="m);tGUD~]q[Bm+4}hV~w">
+<field name="NUM">1.5</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="telemetry_addNumericData_Number" id="O**=R76~ZvRw7P{ahJp8">
+<value name="KEY">
+<shadow type="text" id="t8=C{44_3G#Mi?!^Nyrv">
+<field name="TEXT">encoder</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="TTYs9p4ZfNdI6VcBG,%*">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="{|k9L}OQ6`^eW#hkq1E=">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="t_u7/p4/g(z:P0OKc5aB"/>
+</next>
+</block>
+</statement>
+<next>
+<block type="comment" id=")O,^@1]qx`b37y]Aq,h_">
+<field name="COMMENT">Lifts the claw to -150 "ticks," about 90 degrees.</field>
+<next>
+<block type="procedures_callnoreturn" id="6u`j^+ti$Q9Aq_OdaMJQ">
+<mutation name="Go Forward (mid-speed)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id=";#r+pt_~bP|*6_YHizb/">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="zl.x|cW@RGzqt%N4u{fO">
+<field name="NUM">2200</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="jY[d;,g7BWz?95[cXCCk">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="TUYK}Rn_2jC45LaZ!ljD">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="m[.[6oejLQT.C6`WkoQQ">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="!5NZ[X{kg8U]v2CNZ_0K">
+<mutation name="Go Backward (mid-speed)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="QkRZ,*{a{#,Hw6,[kw3-">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="g)#3*sicf)b#Z~mDh.0;">
+<field name="NUM">650</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="M@T2}9a}2i4eaplU:W$e">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="]}Kys27vF}8JKnT8v-oI">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="E74,jdXE2n2z~m{:dRQt">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="ZfW%_r|LLCb/MsfAb#TK">
+<mutation name="Turn Right (Fast)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="v7FDgRwt5,1D|b3F]Dny">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="vg;+_Vs6NId9SO*ylz8h">
+<field name="NUM">630</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="%AB+:S!LlmX-KmZmp?=5">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id=",/iL^jI}uD;ls}L;!6XY">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="]IBWWktERTFTgeb4%?),">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="hRjj`h8RD7P0xKita$^=">
+<mutation name="Go Forward (slow)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="`:1]fa`A[3%PK%v5b/sH">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="29,^cAMGepWtMA0n=s*1">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="uWP]sz_bLQxuvCAPkHA0">
+<field name="COMMENT">Robot is ready to drop the shipping element.</field>
+<next>
+<block type="procedures_callnoreturn" id="kV{aTWm3-*W}-6,1Ee=(">
+<mutation name="Stop (w/ Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="*]Q2Y0*CG#=YwQT-Simy">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="LkPWLs;L[;P:0NqFoPAC">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="/H?!QqnVZW4O?YrryB^A">
+<mutation name="Go Backward (slow/mid)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id=":Jy-o]^b,Er4F{5E*Q,D">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="SDmD0(.xx2^TjSj5_f9:">
+<field name="NUM">650</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="AT=X%)Jy~q{zk~5Iz}-R">
+<mutation name="Close Claw"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="~_e$u~a@L@@@6HT@kZya">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="2A$;eBxJAt*m%m~$4$~d">
+<field name="NUM">450</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="d*pYc[;9_*0Fjdu0J`ju">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="e!$|#AetC+v=f6mH|ewZ">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="GC`,(Dp1I;0hG|]cgPG+">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="mxSeWGk2G5A)w:F}WU@.">
+<mutation name="Turn Left (Fast)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="^rs4Qrq4G:]JNF|^lU[$">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="oSg8kZ@(i)sWd5p?r.+-">
+<field name="NUM">500</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id=";@L)CTB[#)xPR8x8y5a=">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id=";,3j_$Cf1u/C*6QrMgmg">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="3mLt-v?Ggiq{mT`?r/bI">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="PEY[g/$=BNV.BONsQ[_n">
+<mutation name="Go Backward (slow/mid)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="I)Mj}VF~2VY]2Ov0L9k{">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="^2AsQ*?K!/veObH|a!7^">
+<field name="NUM">750</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="/b9(dE},PG[GHJTHZ_!Z">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="0}ys:a5oOB]0n%jS}j?#">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="R;vx3P`uM@_eqzC-F78j">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="jIap],:P(Xw84K$qw^aU">
+<mutation name="Turn Right (Fast)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="~)Nd[=(~9[vUO3Q8t(.O">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="{3{[k1T1FT/+)PePq(Og">
+<field name="NUM">440</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="q2CP(Z,wJ:c29kR!fETT">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="9T2D`^ayR!Z8F)mni/Ia">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="GnxLtreHh^q)u)5S-=^-">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="*?)#;@+iXEgSq;N!]Qd`">
+<mutation name="Go Backward (Duck)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="2lX)U?U-FH?:NGzVX;+_">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="]3A:~k}-OE$nQMXQfgz8">
+<field name="NUM">2000</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="yVQxl~.2QKQTski_E`57">
+<field name="COMMENT">The robot backs up to the duck.</field>
+<next>
+<block type="procedures_callnoreturn" id="gJePwgJMf#MEw4^LKze*">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="#``Py9D[)Pnl}0${~BsP">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="@.04]@JKOFW%2M*mq8f=">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="bj4e{qBAN/NS;+CUm8=g">
+<mutation name="Spin Duck (w/ motors)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="=h=k4s[Y|ry6y~tO3vca">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="Tk9,B=B5)US1#ULYO1Xj">
+<field name="NUM">6000</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="sN3GZTzFa,iF=)@WHLVz">
+<field name="COMMENT">Turns the carrousel for the duck to touch the mat.</field>
+<next>
+<block type="procedures_callnoreturn" id="X,5E79ZxtD?*pRgYIB2S">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="/ct@f0feS5#P5;Y/?=|-">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="gIh?FbY8.F?UtaN!t/=2">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="kN/zRrcW#S?79z14Txw^">
+<mutation name="Go Forward (mid-speed)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="Ollq|PP$0o+V=%,;W:z*">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="oCCv8-P$tFB7Q/)e~We]">
+<field name="NUM">1500</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="s16rFlJf|xOMJQM){Isz">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="S6YZn{v8X.I.5H8uEJ4j">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="/!Qwi~5|u}:-By*m@K-`">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="EGFetS6#qzr).3mAv=N`">
+<mutation name="Turn Right (Fast)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="eK9b(26qS9FT#+cE7fsW">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="Vjfcuws0?6j6f*!_Dku1">
+<field name="NUM">330</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="9J^zc5%M@PcMLvz4R~`b">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="(SqltTg-(Kyy0!DS7AWy">
+<value name="MILLISECONDS">
+<shadow type="math_number" id=";JMsqk305W{)Zj0{1b[b">
+<field name="NUM">150</field>
+</shadow>
+</value>
+<next>
+<block type="procedures_callnoreturn" id="GBf40F7(`Hk@@N@gw(/Y">
+<mutation name="Go Backward (right power)"/>
+<next>
+<block type="linearOpMode_sleep_Number" id="ETeu!OtTATpa%KNaJP}o">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="wav_x[;W,na$n?of!(4C">
+<field name="NUM">2900</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="nUwR038!#}MOQP]`Bx^c">
+<field name="COMMENT">Backs up, and parks the robot.</field>
+<next>
+<block type="procedures_callnoreturn" id="0`)%3akxQrV`Xql?/~M%">
+<mutation name="Stop (w/o Claw)"/>
+<next>
+<block type="dcMotor_setProperty_Direction" id="}{x/8H^PYowfeOfEkGSQ">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="_2R8_y!PJTmVgI:![NF2">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="x2!I8j0m,]_iUNvyKQ[{">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="E`?iL%|,2h=)k%aY/RL4">
+<field name="NUM">10</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="+,Vf$ZH0@XM-~gEY(mr/">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="L6-kED^IIH727Lg7%235">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="G%;/jqn[F1P7dMBethia">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="8{:?G@%h8rknZfq_!?td">
+<field name="NUM">4000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="{kn?-w!0fakE?Oj[|0y,">
+<field name="IDENTIFIER">claw_motorAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"claw_motor"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="s?2Ayr]+?C]Bo1La;[Yr">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="2yNRKY[D~bW[zoqe#d/n">
+<field name="COMMENT">Moves the claw to 10 "ticks," the end of the program.</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="8o^H-}gPV~QAmIllS8Q$" x="181" y="318">
+<field name="NAME">Go Backward (Duck)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id=":d8Ay]g=q5ZWkGfMMkWu">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id=";R|!wTp6VSS-Z`,mMM[J">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id=":H{K`ts)+Kd}B$5V0D7s">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="^-M}$yraZOHxSy/Jvp+5">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="b8-O{GDJG!sKGI%Rant+">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="!7E#Im^R5]xVh_(gztD9">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="G}u|Li4.3bf;E@S(Dva1">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="0K1R(g%ls1C)p7lVADG7">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="+c4m`]Tp1V8wE`2aY}|Q">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="u3bs[MzzFdbcm_:3;/]C">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="{}iSd_zKOH9ev^$HN=yp" x="478" y="315">
+<field name="NAME">Stop (w/ Claw)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="!9w8cr3:~-TVpm|3})E6">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="xJGUC(p(z5]0vC~BStEs">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="kH6{|L+9U[Z9dV@umI[N">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="u;OyhMmjzR]wPy/_A8mG">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="*Wd0p(3LabJ[942chJR;">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="WM-xWo4XW/2)}V(~kM^D">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="oM$8t3y@~!uvNs%Ndi^u">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="#*klrI/LIWC:wdwNIR{5">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="QJFm]sQN+H7NZ|VdV6=q">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="ayVCmul-z;kC0eM]d6ks">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="rPr$5DlW-MI2|xgVz3fa">
+<field name="IDENTIFIER">duckAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"duck"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="3i1HanQlP.0p:Qc?;Z~R">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id="~E9$^OcrSpvw(.mc^8[k">
+<field name="IDENTIFIER">right_clawAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right_claw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="hA/nNOW+OD{r@mcaVphA">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id=".^akWcE:5.xB(gS@^Q-f">
+<field name="IDENTIFIER">left_clawAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left_claw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="EkD}0hG,I_6rq~O0ClF[">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="?7?bRrF~+MMt6,)7z4_I" x="788" y="305">
+<field name="NAME">Turn Left (Fast)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="?aqT[NQ154v57X)!S$v{">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomleftAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-left","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.25</field>
+</shadow>
+<block type="math_number" id="LJT[8IqLX;]1mNlyb%qw">
+<field name="NUM">-0.65</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.25</field>
+</shadow>
+<block type="math_number" id="uwk?`b*ig0Lr2_iJM*vQ">
+<field name="NUM">-0.65</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="C|Xco_zF2Hd,_!*q)(uU">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomrightAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"bottom-right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">-0.25</field>
+</shadow>
+<block type="math_number" id=":V3_7BgXt;T%jhha,;I5">
+<field name="NUM">0.7</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">-0.25</field>
+</shadow>
+<block type="math_number" id="!HZUQRgAKv=FA4Kh-}[6">
+<field name="NUM">0.7</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="|L-jwP%UONh]pYzuXUjP" x="1074" y="305">
+<field name="NAME">Go Forward (slow)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="N7AgYDUgG:2JYA/b.]cO">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="}jLp!)R^w8r]wAlZ%X^+">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id=":32]MeBR]ad|n?KM++P2">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="IW6?nSXV_m/3v9@g|sn`">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="r-o}Cr{ka$*p(E%.?h%I">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="y!3UNH!$0qWo_O|HDJZ`">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="t#GLCcw)h:}f!LY];D!/" x="182" y="527">
+<field name="NAME">Go Backward (Slow)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="PA,pTsJIS*ZB.v_IE/z5">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="*f:dtHF~:k,0L;i4LvRY">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="ZEr3a!O89/mkVnLo9GPW">
+<field name="NUM">0.5</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="(BOF*1^NE(=11CmBl;%d">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="uYsE@*JVst`|:w9(K5,h">
+<field name="NUM">0.15</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="Xg5?IXq+ElTwHa)_Qw+t">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="L[;E}uo=y!AL/s9ag2Rh">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="}e`N|?NjeX1~iP$5X|m5">
+<field name="NUM">0.5</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="wZ?tg#nP^(8D)Sj?:]a|">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="nd{vE/ys|i+@vyJ7CeL?">
+<field name="NUM">0.15</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="I,X%-.z`Ibbm{hL]?FEA" x="787" y="518">
+<field name="NAME">Turn Right (Fast)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="}PfAg8Yu];wAT;[_,#15">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomleftAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-left","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.25</field>
+</shadow>
+<block type="math_number" id="F,G6Jjij0/V},w?pS)9r">
+<field name="NUM">0.7</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.25</field>
+</shadow>
+<block type="math_number" id="k+i4PG9?cyq%~a[9+ER6">
+<field name="NUM">0.7</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="B|ZKM_jO`0X.c.wni)Q.">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomrightAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"bottom-right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">-0.25</field>
+</shadow>
+<block type="math_number" id="(PZRrx_Mtp)ln*e/;*4*">
+<field name="NUM">-0.7</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">-0.25</field>
+</shadow>
+<block type="math_number" id="Gv5J0;d54y(@eU_R7,9Z">
+<field name="NUM">-0.7</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="@Z|p+nMe|0kaD|]Kv0s=" x="1076" y="519">
+<field name="NAME">Open Claw</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="crServo_setProperty_Number" id="U?8`cx51,p34kK8$cN40">
+<field name="IDENTIFIER">right_clawAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right_claw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="RnYxN]dDm4[7Mq`:yqU[">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id=";tiG}n*$Tu5EHa(A@))H">
+<field name="IDENTIFIER">left_clawAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left_claw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="QUCPg1.mGpVv9bCQ1)0,">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="_e20}@Fj!am{72pshm[k" x="480" y="599">
+<field name="NAME">Stop (w/o Claw)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id=";a[LdTE|X-M3.yX(BG$@">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="J`VP@pPoPZb%3{Qtv`kb">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="cW?.:G6dufobtjUB*)$-">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="Ez}meS6~v`jQhh@UJ^:7">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="+fdmR9BEfc3Oy|9|-7,6">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="N7*$?;=TjO{SU5N.g]x_">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="y=SLW7pX$Qe?|iv#U[3n">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="!=o,5Y`B@R4K4oO{OsL=">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="o3;%dvv[DmFAJuXqi:6x">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="+BO3=j`M|~:YM_~fi=/G">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="VpGO7U`=_Vm5uDJY^!p7">
+<field name="IDENTIFIER">duckAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"duck"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="s3UFs:!@2[~2SkKsb(MC">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="s0{DQ@u[sRE3@FbQkw$1" x="1082" y="626">
+<field name="NAME">Close Claw</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="crServo_setProperty_Number" id="r2KVdGgIWmC_aEa/LC$x">
+<field name="IDENTIFIER">right_clawAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right_claw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="v8OQV[|lkVz0]W=tE0*r">
+<field name="NUM">-0.4</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id="VCX$+b~D)dXnZ@T)A/#$">
+<field name="IDENTIFIER">left_clawAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left_claw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="z4o26fQ8:4BXClp,T^nk">
+<field name="NUM">0.4</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="(*h-hwLNpm6QnvD^H_l~" x="181" y="744">
+<field name="NAME">Spin Duck (w/ motors)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="#:Nl1|,%oUS(}HH:Yr5R">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="79.8g~e%}C/yA-5jEdPe">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="OI/B%Hu2$8Hw}OO,]USR">
+<field name="NUM">0.1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="Xoc;[cN3|]P)c1Ext1NY">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="fucIv4U,{!n3Z@dN6a)J">
+<field name="NUM">0.1</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="dM6mwtR2}.SFMfwMA^jT">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="8Y0,PfLD{R0=![rF=1CA">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="0{qH+zOE2-pX^(^$%UU0">
+<field name="NUM">0.1</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="/!nsLRW5ly8DRI_+t?@y">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="36]pZwiz!RGwWW__d?,X">
+<field name="NUM">0.1</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="g5ueI@N-4c|yk=GJ^Ia7">
+<field name="IDENTIFIER">duckAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"duck"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="5x?4Nq/IbBUob72Qds`t">
+<field name="NUM">-0.3</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="bq)lc8[$`.%5HCYyI5LY" x="788" y="738">
+<field name="NAME">Go Forward (mid-speed)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="YC-Z|B:ATdy3bvDScFj!">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="FCC](_zc5qI1[cnENIE[">
+<field name="NUM">0.35</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="KKOZFXkb%X?Q7W(y*H(o">
+<field name="NUM">0.35</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="B}SWmgv2WWB{,E?T[_-|">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="z^`Y6J@sC{4vVeZ3fqKb">
+<field name="NUM">0.35</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id=".S`E])0K3_oDe,cIq{Ws">
+<field name="NUM">0.35</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="{aiS2M}+J^zaMK)VKoMf" x="1083" y="734">
+<field name="NAME">Go Forward (Park)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="D?K7!2X5hK;i~#:TxmsS">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="md*a1/ieNu1g_S$uX}M|">
+<field name="NUM">0.5</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="T`ub+QMx2ZuNcMLgE8Sh">
+<field name="NUM">-0.1</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="+,h(5/MGh=Q}|+*;.4;p">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="/|6b)dK4Crk96`)1=mo3">
+<field name="NUM">0.5</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="{sunj*:{Q}Fw(U?FisqG">
+<field name="NUM">-0.1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="rA6/hWLyD6vUYzevO}zO" x="484" y="836">
+<field name="NAME">Turn Left (Slow)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="rVSG]nBR46Z^}|Pi=bCB">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomleftAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-left","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.25</field>
+</shadow>
+<block type="math_number" id="-.MN=t3f@zLGEY-(@s,2">
+<field name="NUM">-0.2</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.25</field>
+</shadow>
+<block type="math_number" id="CQsFRqCcl~(c`x5x^p7U">
+<field name="NUM">-0.2</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="K!(X-ddpwnN%Wz(,2%gK">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomrightAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"bottom-right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">-0.25</field>
+</shadow>
+<block type="math_number" id="Hmo.l6O%eZ*H44P+Ky,@">
+<field name="NUM">0.7</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">-0.25</field>
+</shadow>
+<block type="math_number" id="maB#SL3{m!yJ6pvyHz?=">
+<field name="NUM">0.7</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="bhMtjG_t|6[+j(@8Z@8$" x="180" y="986">
+<field name="NAME">Turn Left (faster)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="Xd4dyW]O9Gb!~wJt_MR5">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomleftAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-left","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.25</field>
+</shadow>
+<block type="math_number" id="394ED2o]f=Y}-?[F(K1G">
+<field name="NUM">0.5</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.25</field>
+</shadow>
+<block type="math_number" id="Y8MsI)+3JwYfpw6e#4!c">
+<field name="NUM">0.5</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="m[Sb$em0%nY8S!mcuD0X">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomrightAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"bottom-right"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">-0.25</field>
+</shadow>
+<block type="math_number" id="UTh}onv]n$%ZfO)~Q10{">
+<field name="NUM">-0.6</field>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">-0.25</field>
+</shadow>
+<block type="math_number" id="YPJB`ji8^M`THhH8~b)2">
+<field name="NUM">-0.6</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="WFwR)IGG+Jt{]f*yPzsM" x="1087" y="945">
+<field name="NAME">Go Backward (slow/mid)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="^+`9tjmWtgyS-Y^j][,%">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="QGSHgx24`E1LDuVGE6xC">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="zFntN5NxMfbk9Q0{YcsT">
+<field name="NUM">0.3</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="9r*W}awkv*}o!c`=ufQS">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="KZ%WlVzok|6p/OBCYMhR">
+<field name="NUM">0.3</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="uB[A?|@/aFqmc9{7?zai">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="Z$C@T1$MV@DOflQXK(XH">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="w=uc{8!C~lTk^^Xc[2.p">
+<field name="NUM">0.3</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="/t^U]EU[O`HqW)`xw9$1">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="6m/^oGlpuOMk`OxS{{[s">
+<field name="NUM">0.3</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="]e:nQ%$r4aYnsmmepuPt" x="484" y="1052">
+<field name="NAME">Go Backward (mid-speed)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="eenKZ9I7iwI]:8JFmV2~">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="hMJVB+RykcbzWm=*GW*i">
+<field name="NUM">-0.35</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="sH2b5PIv8o;+7jr{m71*">
+<field name="NUM">-0.35</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="(z(0x4Y.L+w;UrLZeh)G">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="U[-qv!vsB%_d![bWB3@u">
+<field name="NUM">-0.35</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="0F1l$_A#NQ.6AP@h.5[l">
+<field name="NUM">-0.35</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="9Cm^2-hM}e^tPJ9V0Mp4" x="1088" y="1157">
+<field name="NAME">Go Backward (right power)</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setDualProperty_Number" id="O0h]Jv5bm$)tR;Q6?d9X">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">toprightAsDcMotor</field>
+<field name="IDENTIFIER2">topleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"top-right","IDENTIFIER2":"top-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="PuJn8sWN|#~KB:8:hcC=">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="v!-nj94PgB|q]q|dB_~!">
+<field name="NUM">0.3</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="VbxR9~x`:Yn~7j|5Q%3M">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="8B,;)0{a^2NwXT])!(:u">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="~Z%)qDZR0`J^{XUi_r-]">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">bottomrightAsDcMotor</field>
+<field name="IDENTIFIER2">bottomleftAsDcMotor</field>
+<data>{"IDENTIFIER1":"bottom-right","IDENTIFIER2":"bottom-left"}</data>
+<value name="VALUE1">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="|B*s7;}d^aGKgN/dY}KA">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="ZLs;!,UWe1ImWun0y#A]">
+<field name="NUM">0.3</field>
+</shadow>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="math_single" id="O(bcC%E5Lf%ilC-g8P1T">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="X2#S*fUZQOn6$QCg`V`L">
+<field name="NUM">0.2</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="AUTONOMOUS" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>
